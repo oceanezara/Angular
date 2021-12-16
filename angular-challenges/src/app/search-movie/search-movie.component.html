@@ -1,0 +1,85 @@
+<div class="card m-3">
+  <h4>Challenge 8 - Reactive Form</h4>
+  <h5 class="card-header">Search Movie</h5>
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-5">
+          <label>Identifiant</label>
+          <input
+            type="text"
+            formControlName="id"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['id'].errors }"
+          />
+          <div *ngIf="submitted && f['id'].errors" class="invalid-feedback">
+            <div *ngIf="f['id'].errors['required']">Id est requis</div>
+          </div>
+        </div>
+        <div class="form-group col-5">
+          <label>Titre</label>
+          <input
+            type="text"
+            formControlName="titre"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['titre'].errors }"
+          />
+          <div *ngIf="submitted && f['titre'].errors" class="invalid-feedback">
+            <div *ngIf="f['titre'].errors['required']">Titre est requis</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col">
+        <label>Type</label>
+        <select
+          formControlName="type"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['type'].errors }"
+        >
+          <option value=""></option>
+          <option value="film">film</option>
+          <option value="serie">série</option>
+          <option value="episode">épisode</option>
+        </select>
+        <div *ngIf="submitted && f['type'].errors" class="invalid-feedback">
+          <div *ngIf="f['type'].errors['required']">Title is required</div>
+        </div>
+      </div>
+      <div class="form-group col-5">
+        <label>Année de sortie</label>
+        <input
+          type="text"
+          formControlName="date"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['date'].errors }"
+        />
+        <div *ngIf="submitted && f['date'].errors" class="invalid-feedback">
+          <div *ngIf="f['date'].errors['required']">Titre est requis</div>
+          <div *ngIf="f['date'].errors['min']">Date mimimale 1900</div>
+        </div>
+      </div>
+      <div class="form-group col">
+        <label>Fiche</label>
+        <select
+          formControlName="fiche"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['fiche'].errors }"
+        >
+          <option value=""></option>
+          <option value="complete">complete</option>
+          <option value="courte">courte</option>
+        </select>
+        <div *ngIf="submitted && f['fiche'].errors" class="invalid-feedback">
+          <div *ngIf="f['fiche'].errors['required']">Title is required</div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary mr-1">Register</button>
+        <button class="btn btn-secondary" type="reset" (click)="onReset()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
