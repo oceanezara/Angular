@@ -1,0 +1,17 @@
+<div>
+  <ul class="list-group">
+    <li class="list-group-item">Nom : {{ developer.lastName }}</li>
+    <li class="list-group-item">Prénom : {{ developer.firstName }}</li>
+    <li class="list-group-item">Age : {{ developer.age }} ans</li>
+    <li class="list-group-item">Sexe : {{ developer.sexe }}</li>
+    <li class="list-group-item">Bio : {{ developer.bio }}</li>
+    <li class="list-group-item">
+      Skills :
+      <ul>
+        <li *ngFor="let oneSkill of developer.skills">
+          <app-skill [skill]="oneSkill"></app-skill>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
