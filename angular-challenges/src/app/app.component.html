@@ -1,1 +1,10 @@
-<app-developer></app-developer>
+<h1>Parent component</h1>
+<h2>Challenge 10</h2>
+
+<app-create-onomatopia
+  (sendOnomatopiaToParent)="onReceiveNewOnomatopia($event)"
+></app-create-onomatopia>
+
+<ul>
+  <li *ngFor="let item of onomatopoeias">{{ item }}</li>
+</ul>

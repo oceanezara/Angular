@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-challenges';
+
+  greet(name: string) {
+    alert('Hello' + name);
+  }
+
+  onomatopoeias: Array<string> = [];
+
+  onReceiveNewOnomatopia(newItem: string) {
+    this.onomatopoeias.push(newItem);
+  }
 }
